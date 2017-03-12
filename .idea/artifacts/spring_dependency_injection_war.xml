@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring-dependency-injection:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="spring-dependency-injection.war">
+      <element id="artifact" artifact-name="spring-dependency-injection:war exploded" />
+    </root>
+  </artifact>
+</component>
