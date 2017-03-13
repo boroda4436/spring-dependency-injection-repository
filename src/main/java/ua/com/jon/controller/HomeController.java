@@ -4,7 +4,8 @@ import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
-import ua.com.jon.service.TestService;
+import ua.com.jon.dto.Salary;
+import ua.com.jon.service.EmployeeService;
 
 /**
  * Created by Bohdan on 12.03.2017
@@ -14,17 +15,12 @@ import ua.com.jon.service.TestService;
 public class HomeController {
 
     @Autowired
-    private TestService testService;
-
-    public HomeController(){
-        System.out.println("init HomeController successfully");
-        log.info("init HomeController successfully");
-    }
+    private EmployeeService employeeService;
 
     @Scheduled(cron = "0/5 * * * * ?")
     public void test(){
-        log.info("Run test method");
-        System.out.println("Run test method");
-        testService.doSmth();
+
+        Salary salary = employeeService.getRandomSalary();
+        log.info("Salary: " +  salary.toString());
     }
 }
