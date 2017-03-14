@@ -6,6 +6,6 @@ import ua.com.jon.dto.connector.ConnectorType;
 /**
  * Created by Bohdan on 14.03.2017
  */
-public interface FtpSettingsDao {
+public interface ConnectorSettingsDao {
     AbstractSettings getSettings(ConnectorType connectorType);
 }

@@ -1,7 +1,7 @@
 package ua.com.jon.dao.impl;
 
 import org.springframework.stereotype.Component;
-import ua.com.jon.dao.FtpSettingsDao;
+import ua.com.jon.dao.ConnectorSettingsDao;
 import ua.com.jon.dto.connector.AbstractSettings;
 import ua.com.jon.dto.connector.ConnectorType;
 import ua.com.jon.dto.connector.FtpConnectorSettings;
@@ -11,7 +11,7 @@ import ua.com.jon.dto.connector.MailConnectorSettings;
  * Created by Bohdan on 14.03.2017
  */
 @Component
-public class FtpSettingsDaoImpl implements FtpSettingsDao {
+public class ConnectorSettingsDaoImpl implements ConnectorSettingsDao {
 
     @Override
     public AbstractSettings getSettings(ConnectorType connectorType) {
