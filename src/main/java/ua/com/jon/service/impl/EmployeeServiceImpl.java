@@ -17,9 +17,14 @@ import ua.com.jon.service.EmployeeService;
 @Log4j
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    private EmployeeDao employeeDao;
+    private final EmployeeDao employeeDao;
+    private final ConnectorSettingsDao connectorSettingsDao;
 
-    private ConnectorSettingsDao connectorSettingsDao;
+    @Autowired
+    public EmployeeServiceImpl(EmployeeDao employeeDao, ConnectorSettingsDao connectorSettingsDao) {
+        this.employeeDao = employeeDao;
+        this.connectorSettingsDao = connectorSettingsDao;
+    }
 
     public Salary getRandomSalary() {
         Employee employee = new Employee();
@@ -36,13 +41,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         log.info("Salary example: " + salary.toString());
     }
 
-    @Autowired
-    public void setEmployeeDao(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
-    }
 
-    @Autowired
-    public void setConnectorSettingsDao(ConnectorSettingsDao connectorSettingsDao) {
-        this.connectorSettingsDao = connectorSettingsDao;
-    }
+
+
+
 }
