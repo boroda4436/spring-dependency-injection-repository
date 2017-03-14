@@ -1,7 +1,8 @@
 package ua.com.jon.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.com.jon.dao.EmployeeDaoImpl;
+import ua.com.jon.dao.EmployeeDao;
 import ua.com.jon.dto.Employee;
 import ua.com.jon.dto.Salary;
 import ua.com.jon.service.EmployeeService;
@@ -11,7 +12,8 @@ import ua.com.jon.service.EmployeeService;
  */
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-    private EmployeeDaoImpl employeeDao = new EmployeeDaoImpl();
+    @Autowired
+    private EmployeeDao employeeDao;
 
     public Salary getRandomSalary() {
         Employee employee = new Employee();
