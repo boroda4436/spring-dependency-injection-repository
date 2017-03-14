@@ -27,4 +27,12 @@ public class FtpConnectorSettings extends AbstractSettings {
     public void setPort(int port) {
         this.port = port;
     }
+
+    @Override
+    public String toString() {
+        return "FtpConnectorSettings{" +
+                "url='" + url + '\'' +
+                ", port=" + port +
+                '}';
+    }
 }

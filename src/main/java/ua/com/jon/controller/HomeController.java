@@ -8,6 +8,7 @@ import ua.com.jon.connectors.FtpConnector;
 import ua.com.jon.connectors.MailConnector;
 import ua.com.jon.dao.ConnectorSettingsDao;
 import ua.com.jon.dto.connector.ConnectorType;
+import ua.com.jon.service.EmployeeService;
 
 /**
  * Created by Bohdan on 12.03.2017
@@ -18,6 +19,9 @@ public class HomeController {
 
     @Autowired
     private ConnectorSettingsDao connectorSettingsDao;
+
+    @Autowired
+    private EmployeeService employeeService;
 
     @Scheduled(cron = "0/5 * * * * ?")
     public void test(){
@@ -30,6 +34,8 @@ public class HomeController {
 
         MailConnector mailConnector = new MailConnector();
         mailConnector.connect(connectorSettingsDao.getSettings(ConnectorType.MAIL));
+
+        employeeService.runInjectionExample();
 
     }
 }

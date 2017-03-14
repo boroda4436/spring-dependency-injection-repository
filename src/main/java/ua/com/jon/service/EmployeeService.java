@@ -7,5 +7,6 @@ import ua.com.jon.dto.Salary;
  */
 public interface EmployeeService {
     Salary getRandomSalary();
+    void runInjectionExample();
 
 }
