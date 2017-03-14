@@ -6,6 +6,8 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import ua.com.jon.connectors.FtpConnector;
 import ua.com.jon.connectors.MailConnector;
+import ua.com.jon.dao.FtpSettingsDao;
+import ua.com.jon.dto.connector.ConnectorType;
 import ua.com.jon.service.EmployeeService;
 
 import java.util.List;
@@ -17,6 +19,8 @@ import java.util.List;
 @Controller
 public class HomeController {
 
+    @Autowired
+    private FtpSettingsDao ftpSettingsDao;
     @Scheduled(cron = "0/5 * * * * ?")
     public void test(){
 
@@ -24,14 +28,10 @@ public class HomeController {
         int ftpPort = 8080;
 
         FtpConnector ftpConnector = new FtpConnector();
-        ftpConnector.connect(ftpUrl, ftpPort);
-
-        String mailLogin = "test";
-        String mailPassword = "pass";
-        String mailDomain = "google.com.ua";
+        ftpConnector.connect(ftpSettingsDao.getSettings(ConnectorType.FTP));
 
         MailConnector mailConnector = new MailConnector();
-        mailConnector.connect(mailLogin, mailPassword, mailDomain);
+        mailConnector.connect(ftpSettingsDao.getSettings(ConnectorType.MAIL));
 
     }
 }
