@@ -1,5 +1,7 @@
 package ua.com.jon.service.impl;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,15 +18,11 @@ import ua.com.jon.service.EmployeeService;
  */
 @Log4j
 @Service
+@AllArgsConstructor(onConstructor = @__({@Autowired}))
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeDao employeeDao;
     private final ConnectorSettingsDao connectorSettingsDao;
 
-    @Autowired
-    public EmployeeServiceImpl(EmployeeDao employeeDao, ConnectorSettingsDao connectorSettingsDao) {
-        this.employeeDao = employeeDao;
-        this.connectorSettingsDao = connectorSettingsDao;
-    }
 
     public Salary getRandomSalary() {
         Employee employee = new Employee();

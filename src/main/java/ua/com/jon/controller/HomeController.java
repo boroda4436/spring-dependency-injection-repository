@@ -1,5 +1,6 @@
 package ua.com.jon.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -15,13 +16,11 @@ import ua.com.jon.service.EmployeeService;
  */
 @Log4j
 @Controller
+@RequiredArgsConstructor(onConstructor = @__({@Autowired}))
 public class HomeController {
 
-    @Autowired
-    private ConnectorSettingsDao connectorSettingsDao;
-
-    @Autowired
-    private EmployeeService employeeService;
+    private final ConnectorSettingsDao connectorSettingsDao;
+    private final EmployeeService employeeService;
 
     @Scheduled(cron = "0/5 * * * * ?")
     public void test(){
