@@ -25,12 +25,11 @@ import static org.junit.Assert.*;
 public class EmployeeServiceTest {
 
     private ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
-    private EmployeeService employeeService;
 
 
     @Test
     public void getRandomSalary() throws Exception {
-        employeeService = ctx.getBean(EmployeeService.class);
+        EmployeeService employeeService = ctx.getBean(EmployeeService.class);
         assertNotNull(ctx);
         assertNotNull(employeeService);
 
