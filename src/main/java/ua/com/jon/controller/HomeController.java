@@ -28,9 +28,6 @@ public class HomeController {
     @Scheduled(cron = "0/5 * * * * ?")
     public void test(){
 
-        String ftpUrl = "localhost";
-        int ftpPort = 8080;
-
         FtpConnector ftpConnector = new FtpConnector();
         ftpConnector.connect(connectorSettingsDao.getSettings(ConnectorType.FTP));
 
