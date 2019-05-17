@@ -6,7 +6,7 @@ jdk:
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 before_script:
-- prepare_env.sh
+- bash prepare_env.sh
 script:
 - mvn clean install
 cache:
